@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Points2Miles — India Miles Cheat-Sheet</title>
+<meta name="description" content="Compare Indian credit-card reward-point transfers and estimate airline or hotel miles.">
+<meta name="theme-color" content="#f5f2ec">
+<meta property="og:title" content="Points2Miles — India Miles Cheat-Sheet">
+<meta property="og:description" content="Every credit card transfer partner, ratio & miles calculator for India.">
+<meta property="og:url" content="https://points2miles.in">
+<meta property="og:image" content="https://points2miles.in/og-image.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://points2miles.in/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J1GXJJHM2Y"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J1GXJJHM2Y');
+function trackEvent(n, p={}){ gtag('event', n, p); }
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9475091376207073" crossorigin="anonymous"></script>
+
+<style>
+:root {
+  --ink:#0d0d0f; --paper:#f5f2ec; --cream:#ede9df;
+  --gold:#c9a84c; --gold-light:#f0dfa0; --gold-dark:#8a6e2a;
+  --green:#2d6a4f; --green-light:#d8f3dc;
+  --red:#9b2226; --red-light:#fce4e4;
+  --blue:#1d3557; --blue-light:#dce8f5;
+  --muted:#7a7060; --border:rgba(13,13,15,0.1);
+  --shadow:0 4px 24px rgba(13,13,15,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.5;}
+
+/* HERO */
+.hero{position:relative;padding:5rem 2rem 4rem;text-align:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,0.18) 0%,transparent 70%);pointer-events:none;}
+.hero-rule{width:60px;height:2px;background:var(--gold);margin:0 auto 1.5rem;animation:expand 1s ease forwards;}
+@keyframes expand{from{width:0;opacity:0;}to{width:60px;opacity:1;}}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:1rem;opacity:0;animation:fadeUp 0.6s 0.2s ease forwards;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;line-height:1.05;color:var(--ink);margin-bottom:1.2rem;opacity:0;animation:fadeUp 0.7s 0.35s ease forwards;}
+.hero h1 em{font-style:italic;color:var(--gold-dark);}
+.hero-sub{font-size:1rem;color:var(--muted);font-weight:300;max-width:520px;margin:0 auto 2.5rem;line-height:1.7;opacity:0;animation:fadeUp 0.7s 0.5s ease forwards;}
+.badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;opacity:0;animation:fadeUp 0.7s 0.65s ease forwards;}
+.badge{font-family:'DM Mono',monospace;font-size:10.5px;padding:5px 12px;border-radius:100px;letter-spacing:0.04em;border:1px solid;}
+.badge-gold{background:rgba(201,168,76,0.12);border-color:var(--gold);color:var(--gold-dark);}
+.badge-green{background:var(--green-light);border-color:var(--green);color:var(--green);}
+.badge-ink{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* CALCULATOR */
+.calc-section{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 2rem;margin:0;}
+.calc-header{text-align:center;margin-bottom:2rem;}
+.calc-header h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;}
+.calc-header p{color:var(--muted);font-size:0.95rem;}
+.calc-controls{max-width:900px;margin:0 auto 1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;}
+.ctrl{display:flex;flex-direction:column;}
+.ctrl label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem;font-weight:500;}
+
+/* Custom selects */
+.sel-wrap{position:relative;}
+.sel-face{display:flex;align-items:center;gap:10px;width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;transition:all 0.2s;min-height:46px;user-select:none;text-align:left;font:inherit;}
+.sel-face:hover{border-color:var(--ink);}
+.sel-face.open{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.12);}
+.sel-icon{font-size:20px;flex-shrink:0;width:28px;text-align:center;}
+.sel-text{flex:1;}
+.sel-name{font-size:14px;font-weight:500;color:var(--ink);}
+.sel-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.sel-arrow{font-size:10px;color:var(--muted);transition:transform 0.2s;}
+.sel-face.open .sel-arrow{transform:rotate(180deg);}
+.sel-face:focus-visible,.sel-opt:focus-visible,.calc-btn:focus-visible,footer a:focus-visible{outline:3px solid rgba(201,168,76,0.6);outline-offset:3px;}
+.sel-face:disabled{cursor:not-allowed;background:#f6f4ef;color:var(--muted);}
+
+.sel-drop{position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border:1px solid var(--border);border-radius:8px;box-shadow:var(--shadow);max-height:280px;overflow-y:auto;z-index:500;display:none;}
+.sel-drop.visible{display:block;}
+.sel-opt{display:flex;align-items:center;gap:10px;width:100%;padding:11px 14px;cursor:pointer;border:0;border-bottom:1px solid rgba(0,0,0,0.04);background:#fff;text-align:left;font-family:'DM Sans',sans-serif;transition:background 0.15s;}
+.sel-opt:hover{background:rgba(201,168,76,0.08);}
+.sel-opt:last-child{border-bottom:none;}
+.opt-icon{font-size:20px;width:28px;text-align:center;flex-shrink:0;}
+.opt-name{font-size:13px;font-weight:500;color:var(--ink);}
+.opt-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+
+.ctrl input[type=number]{font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--ink);outline:none;transition:all 0.2s;}
+.ctrl input[type=number]:hover{border-color:var(--ink);}
+.ctrl input[type=number]:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.1);}
+
+.calc-btn-wrap{max-width:900px;margin:0 auto;}
+.calc-btn{width:100%;font-size:15px;font-weight:600;padding:13px 28px;border-radius:8px;border:none;background:var(--gold);color:var(--ink);cursor:pointer;transition:all 0.3s;font-family:'DM Sans',sans-serif;}
+.calc-btn:hover{background:var(--gold-dark);color:#fff;transform:translateY(-2px);box-shadow:var(--shadow);}
+.calc-btn:active{transform:translateY(0);}
+
+/* RESULTS */
+.results{max-width:900px;margin:2rem auto;padding:0 2rem;}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.res-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.res-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);}
+.res-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--blue);margin-bottom:4px;}
+.res-lbl{font-size:11.5px;color:var(--muted);line-height:1.5;}
+
+.res-table-wrap{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+.res-table-wrap table{width:100%;border-collapse:collapse;}
+.res-table-wrap thead tr{background:#fafaf8;}
+.res-table-wrap th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:11px 16px;text-align:left;border-bottom:1px solid var(--border);}
+.res-table-wrap th.r{text-align:right;}
+.res-table-wrap td{padding:11px 16px;border-bottom:1px solid rgba(13,13,15,0.05);vertical-align:middle;}
+.res-table-wrap td.r{text-align:right;}
+.res-table-wrap tr:last-child td{border-bottom:none;}
+.res-table-wrap tbody tr:hover td{background:rgba(201,168,76,0.04);}
+.airline-row{display:flex;align-items:center;gap:10px;}
+.al-info{}
+.al-name{font-weight:500;font-size:13px;color:var(--ink);}
+.al-prog{font-size:11px;color:var(--muted);margin-top:2px;}
+
+.tag{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:100px;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;margin-left:4px;}
+.t-india{background:#d8f3dc;color:#1b4332;border:1px solid #95d5b2;}
+.t-best{background:rgba(201,168,76,0.2);color:var(--gold-dark);border:1px solid var(--gold);}
+.t-hotel{background:#e8e0f7;color:#4a1d96;border:1px solid #c4b5fd;}
+
+.rb{display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;padding:3px 10px;border-radius:100px;white-space:nowrap;}
+.rb-bonus{background:#d8f3dc;color:#1b4332;border:1px solid #95d5b2;}
+.rb-1{background:#eaf3e0;color:#2d6a4f;border:1px solid #b7e4c7;}
+.rb-2{background:#fde8d0;color:#8a3500;border:1px solid #f4a261;}
+.rb-3{background:#fce4e4;color:#9b2226;border:1px solid #e76f51;}
+.rb-6{background:#fce4e4;color:#6d0014;border:1px solid #c9184a;}
+
+.mv{font-family:'DM Mono',monospace;font-size:14px;font-weight:600;color:var(--blue);}
+.speed-col{font-size:13px;}
+.note-col{font-size:11px;color:var(--muted);font-style:italic;max-width:160px;}
+
+.empty-state{text-align:center;padding:2.5rem;color:var(--muted);font-size:0.95rem;}
+.form-message{max-width:900px;margin:1rem auto 0;padding:0 2rem;color:var(--red);font-size:0.9rem;min-height:1.4em;}
+
+/* LEGEND */
+.legend{max-width:900px;margin:0 auto 3rem;padding:0 2rem;}
+.legend-inner{padding:1.1rem 1.4rem;background:var(--cream);border-radius:12px;border:1px solid var(--border);}
+.legend-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.legend-items{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:11.5px;color:var(--muted);}
+
+footer{text-align:center;padding:2rem;font-size:11.5px;color:var(--muted);border-top:1px solid var(--border);font-weight:300;}
+footer a{color:var(--gold-dark);text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+
+@media(max-width:640px){
+  .hero{padding:3.5rem 1.2rem 2.5rem;}
+  .calc-section{padding:1.5rem 1rem;}
+  .calc-controls{grid-template-columns:1fr;}
+  .results{padding:0 1rem;}
+  .res-table-wrap{overflow-x:auto;}
+  .res-table-wrap table{min-width:620px;}
+  .form-message{padding:0 1rem;}
+}
+
+/* ── Apple-inspired visual system ── */
+:root{
+  --ink:#1d1d1f; --paper:#fbfbfd; --cream:#f5f5f7;
+  --gold:#0071e3; --gold-light:#d7ebff; --gold-dark:#0066cc;
+  --green:#00875a; --green-light:#e7f8ef;
+  --red:#d92d20; --red-light:#fff0ef;
+  --blue:#1d1d1f; --blue-light:#f2f2f7;
+  --muted:#6e6e73; --border:rgba(0,0,0,0.11);
+  --shadow:0 10px 30px rgba(0,0,0,0.07);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;letter-spacing:-0.01em;}
+body::before{display:none;}
+.hero{padding:7.5rem 2rem 5.5rem;background:linear-gradient(180deg,#f5f9ff 0%,#fbfbfd 74%);}
+.hero-bg{background:radial-gradient(ellipse 62% 46% at 50% -5%,rgba(0,113,227,0.16),transparent 72%);}
+.hero-rule{width:40px;height:3px;border-radius:99px;background:var(--gold);margin-bottom:1.25rem;}
+.hero-eyebrow,.ctrl label,.legend-title{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;font-weight:600;letter-spacing:0.08em;color:var(--gold-dark);}
+.hero h1{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;font-size:clamp(3.35rem,8vw,6.5rem);font-weight:700;letter-spacing:-0.065em;line-height:0.94;margin-bottom:1.35rem;}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero-sub{font-size:clamp(1.1rem,1.8vw,1.32rem);font-weight:400;line-height:1.45;max-width:620px;margin-bottom:2rem;}
+.badge-row{margin-bottom:0;gap:0.55rem;}
+.badge{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0;padding:0.46rem 0.75rem;border:0;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,0.08);}
+.badge-gold{color:var(--gold-dark);}.badge-green{color:var(--green);}.badge-ink{color:var(--ink);}
+.calc-section{max-width:1120px;margin:0 auto 1.5rem;padding:2.1rem;border:1px solid var(--border);border-radius:24px;background:rgba(255,255,255,0.78);box-shadow:var(--shadow);backdrop-filter:blur(18px);}
+.calc-header{text-align:left;margin-bottom:1.5rem;}
+.calc-header h2{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;font-size:2rem;letter-spacing:-0.04em;margin-bottom:0.25rem;}
+.calc-header p{font-size:1rem;}
+.calc-controls{max-width:none;grid-template-columns:1.1fr 1.35fr 0.8fr;gap:0.9rem;margin-bottom:1rem;}
+.ctrl label{font-size:0.67rem;margin:0 0 0.45rem 0.1rem;}
+.sel-face,.ctrl input[type=number]{min-height:52px;border-radius:14px;border-color:rgba(0,0,0,0.14);background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.01);}
+.sel-face:hover,.ctrl input[type=number]:hover{border-color:rgba(0,113,227,0.65);}
+.sel-face.open,.ctrl input[type=number]:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(0,113,227,0.14);}
+.sel-drop{border-radius:14px;border-color:var(--border);box-shadow:0 16px 36px rgba(0,0,0,0.15);}
+.sel-opt:hover{background:#f2f7fd;}
+.calc-btn-wrap{max-width:none;}
+.calc-btn{width:auto;min-width:190px;float:right;border-radius:999px;background:var(--gold);color:#fff;padding:0.82rem 1.35rem;font-weight:600;box-shadow:none;}
+.calc-btn:hover{background:var(--gold-dark);box-shadow:none;transform:none;}
+.calc-btn-wrap::after{content:"";display:block;clear:both;}
+.form-message{max-width:1120px;padding:0;margin:0.8rem auto 0;}
+.results{max-width:1120px;padding:0;margin:2.75rem auto;}
+.res-grid{grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-bottom:0.8rem;}
+.res-card{border-radius:20px;padding:1.35rem;background:#fff;box-shadow:none;}
+.res-card::before{height:0;background:none;}
+.res-val{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;font-size:2.05rem;letter-spacing:-0.045em;line-height:1.05;}
+.res-lbl{font-size:0.79rem;margin-top:0.45rem;}
+.res-table-wrap{border-radius:20px;box-shadow:none;}
+.res-table-wrap th{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;font-weight:600;letter-spacing:0.04em;padding:0.95rem 1.25rem;}
+.res-table-wrap td{padding:1rem 1.25rem;}
+.al-name{font-size:0.92rem;font-weight:600;}.al-prog{font-size:0.75rem;}
+.rb{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;border-radius:7px;font-size:0.72rem;padding:0.28rem 0.48rem;}
+.tag{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;font-size:0.62rem;letter-spacing:0.02em;border-radius:6px;}
+.legend{max-width:1120px;padding:0;margin-bottom:2.5rem;}
+.legend-inner{background:transparent;border:0;padding:0.4rem 0;}.legend-title{display:none;}
+.legend-items{justify-content:center;font-size:0.75rem;}
+footer{padding:2.4rem 1.5rem;background:#f5f5f7;border:0;font-size:0.76rem;}
+footer a{color:var(--gold-dark);}
+@media(max-width:760px){
+  .hero{padding:5rem 1.25rem 3.5rem;}.calc-section{margin:0 1rem 1rem;padding:1.2rem;border-radius:20px;}
+  .calc-controls,.res-grid{grid-template-columns:1fr;}.calc-btn{width:100%;float:none;}.results{padding:0 1rem;margin-top:2rem;}
+  .res-card{padding:1.15rem;}.legend{padding:0 1rem;}.legend-items{justify-content:flex-start;}.hero h1{font-size:3.5rem;}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-rule"></div>
+  <p class="hero-eyebrow">India Credit Cards · Coverage expanded Aug 2026</p>
+  <h1>Points<em>2</em>Miles</h1>
+  <p class="hero-sub">Every credit card transfer partner, ratio, and miles calculator — all in one place. Sources are linked for every card.</p>
+  <div class="badge-row">
+    <span class="badge badge-gold">Current partner lists</span>
+    <span class="badge badge-green">Sources linked</span>
+    <span class="badge badge-ink">Live Calculator</span>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section">
+  <div class="calc-header">
+    <h2>🏦 Miles Calculator</h2>
+    <p>Select your bank, card and points to see all transfer options</p>
+  </div>
+
+  <div class="calc-controls">
+    <!-- Bank dropdown -->
+    <div class="ctrl">
+      <label for="bankFace">Select Bank</label>
+      <div class="sel-wrap" id="bankWrap">
+        <button class="sel-face" id="bankFace" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="bankDrop">
+          <span class="sel-icon">🏦</span>
+          <div class="sel-text"><div class="sel-name">Choose your bank</div></div>
+          <span class="sel-arrow">▼</span>
+        </button>
+        <div class="sel-drop" id="bankDrop" role="listbox" aria-label="Banks"></div>
+      </div>
+    </div>
+
+    <!-- Card dropdown -->
+    <div class="ctrl">
+      <label for="cardFace">Select Credit Card</label>
+      <div class="sel-wrap" id="cardWrap">
+        <button class="sel-face" id="cardFace" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="cardDrop" disabled>
+          <span class="sel-icon">💳</span>
+          <div class="sel-text"><div class="sel-name">Choose your card</div></div>
+          <span class="sel-arrow">▼</span>
+        </button>
+        <div class="sel-drop" id="cardDrop" role="listbox" aria-label="Credit cards"></div>
+      </div>
+    </div>
+
+    <!-- Points input -->
+    <div class="ctrl">
+      <label for="ptsInput">Reward Points</label>
+      <input type="number" id="ptsInput" value="10000" min="100" step="1000" inputmode="numeric" placeholder="e.g. 50000" aria-describedby="formMessage">
+    </div>
+  </div>
+
+  <div class="calc-btn-wrap">
+    <button class="calc-btn" id="calcBtn">Calculate Miles →</button>
+  </div>
+  <p class="form-message" id="formMessage" role="alert" aria-live="assertive"></p>
+</section>
+
+<!-- RESULTS -->
+<div class="results" id="resultsArea" style="display:none;" aria-live="polite">
+  <div class="res-grid" id="resGrid"></div>
+  <div class="res-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Airline / Program</th>
+          <th class="r">Ratio</th>
+          <th class="r">Miles</th>
+          <th>Speed</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="resBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="empty-state" id="emptyState">
+  👆 Select a bank, then a card, enter your points and hit Calculate
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-inner">
+    <div class="legend-title">Key</div>
+    <div class="legend-items">
+      <span>⚡ Instant &nbsp;|&nbsp; 🕐 1–5 days &nbsp;|&nbsp; 🕔 5–10 days</span>
+      <span class="rb rb-bonus">bonus &gt;1:1</span>
+      <span class="rb rb-1">1:1 great</span>
+      <span class="rb rb-2">2:1 ok</span>
+      <span class="rb rb-3">3:1 poor</span>
+      <span class="tag t-best">★ best</span>
+      <span class="tag t-india">India</span>
+      <span class="tag t-hotel">hotel</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Points2Miles · ICICI and IndusInd coverage reviewed 24 August 2026 from issuer terms and <a href="https://www.airindia.com/in/en/maharaja-club/partner-offers.html" target="_blank" rel="noopener noreferrer">Air India Maharaja Club partner pages</a></p>
+  <p style="margin-top:6px;">Ratios change — always verify before transferring points.</p>
+</footer>
+
+<script>
+const cards = [
+  {
+    id:"axis-atlas", name:"Axis Atlas", bank:"Axis Bank", sub:"Edge Miles · best ratio card in India", icon:"✦",
+    src:"https://www.axisbank.com/docs/default-source/default-document-library/credit-cards/axis-bank-miles-rewards-transfer-terms-and-conditions.pdf",
+    partners:[
+      {a:"Singapore Airlines",p:"KrisFlyer",ratio:"1:2",mult:2,rc:"rb-bonus",india:true,speed:"⚡",best:true,note:"2 miles per point"},
+      {a:"Qatar Airways",p:"Privilege Club",ratio:"1:2",mult:2,rc:"rb-bonus",india:false,speed:"⚡",best:true,note:"2 miles per point"},
+      {a:"Air India",p:"Maharaja Club",ratio:"1:2",mult:2,rc:"rb-bonus",india:true,speed:"🕐",best:true,note:"2 miles per point"},
+      {a:"Etihad Airways",p:"Etihad Guest",ratio:"1:2",mult:2,rc:"rb-bonus",india:true,speed:"⚡",best:false,note:""},
+      {a:"Turkish Airlines",p:"Miles&Smiles",ratio:"1:2",mult:2,rc:"rb-bonus",india:false,speed:"⚡",best:false,note:"Star Alliance"},
+      {a:"Air France-KLM",p:"Flying Blue",ratio:"1:2",mult:2,rc:"rb-bonus",india:false,speed:"⚡",best:false,note:"Promo months"},
+      {a:"United Airlines",p:"MileagePlus",ratio:"1:2",mult:2,rc:"rb-bonus",india:false,speed:"⚡",best:false,note:""},
+      {a:"Air Canada",p:"Aeroplan",ratio:"1:2",mult:2,rc:"rb-bonus",india:false,speed:"🕐",best:false,note:""},
+      {a:"Ethiopian Airlines",p:"ShebaMiles",ratio:"1:2",mult:2,rc:"rb-bonus",india:false,speed:"🕐",best:false,note:""},
+      {a:"Japan Airlines",p:"JAL Mileage Bank",ratio:"1:2",mult:2,rc:"rb-bonus",india:false,speed:"🕔",best:false,note:""},
+      {a:"Qantas",p:"Frequent Flyer",ratio:"1:2",mult:2,rc:"rb-bonus",india:false,speed:"⚡",best:false,note:""},
+      {a:"AirAsia",p:"AirAsia Rewards",ratio:"1:2",mult:2,rc:"rb-bonus",india:true,speed:"⚡",best:false,note:"Budget routes"},
+      {a:"SpiceJet",p:"SpiceClub",ratio:"1:2",mult:2,rc:"rb-bonus",india:true,speed:"⚡",best:false,note:"Domestic"},
+      {a:"Marriott",p:"Bonvoy",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:"Hotel",hotel:true},
+      {a:"Accor Hotels",p:"ALL – Accor Live",ratio:"1:2",mult:2,rc:"rb-bonus",india:true,speed:"⚡",best:false,note:"Hotel",hotel:true},
+      {a:"IHG Hotels",p:"One Rewards",ratio:"1:2",mult:2,rc:"rb-bonus",india:true,speed:"⚡",best:false,note:"Hotel",hotel:true},
+      {a:"Wyndham Hotels",p:"Wyndham Rewards",ratio:"1:2",mult:2,rc:"rb-bonus",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+    ]
+  },
+  {
+    id:"axis-horizon", name:"Axis Horizon", bank:"Axis Bank", sub:"Edge Miles · everyday 1:1 card", icon:"◈",
+    src:"https://www.axisbank.com/docs/default-source/default-document-library/credit-cards/axis-bank-miles-rewards-transfer-terms-and-conditions.pdf",
+    partners:[
+      {a:"Singapore Airlines",p:"KrisFlyer",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:true,note:""},
+      {a:"Air India",p:"Maharaja Club",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"🕐",best:false,note:""},
+      {a:"Qatar Airways",p:"Privilege Club",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Etihad Airways",p:"Etihad Guest",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:""},
+      {a:"AirAsia",p:"AirAsia Rewards",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:""},
+      {a:"Turkish Airlines",p:"Miles&Smiles",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Air France-KLM",p:"Flying Blue",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Marriott",p:"Bonvoy",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:"Hotel",hotel:true},
+    ]
+  },
+  {
+    id:"axis-magnus", name:"Axis Magnus / Reserve", bank:"Axis Bank", sub:"EDGE Rewards · premium tier", icon:"◆",
+    src:"https://www.axisbank.com/docs/default-source/default-document-library/credit-cards/axis-bank-miles-rewards-transfer-terms-and-conditions.pdf",
+    partners:[
+      {a:"Singapore Airlines",p:"KrisFlyer",ratio:"5:2",mult:0.4,rc:"rb-2",india:true,speed:"⚡",best:false,note:""},
+      {a:"Air India",p:"Maharaja Club",ratio:"5:2",mult:0.4,rc:"rb-2",india:true,speed:"🕐",best:false,note:""},
+      {a:"Qatar Airways",p:"Privilege Club",ratio:"5:2",mult:0.4,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Etihad Airways",p:"Etihad Guest",ratio:"5:2",mult:0.4,rc:"rb-2",india:true,speed:"⚡",best:false,note:""},
+      {a:"Turkish Airlines",p:"Miles&Smiles",ratio:"5:2",mult:0.4,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Air France-KLM",p:"Flying Blue",ratio:"5:2",mult:0.4,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Air Canada",p:"Aeroplan",ratio:"5:2",mult:0.4,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"Ethiopian Airlines",p:"ShebaMiles",ratio:"5:2",mult:0.4,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"Japan Airlines",p:"JAL Mileage Bank",ratio:"5:2",mult:0.4,rc:"rb-2",india:false,speed:"🕔",best:false,note:""},
+      {a:"Qantas",p:"Frequent Flyer",ratio:"5:2",mult:0.4,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"SpiceJet",p:"SpiceClub",ratio:"5:2",mult:0.4,rc:"rb-2",india:true,speed:"🕐",best:false,note:""},
+      {a:"Thai Airways",p:"Royal Orchid Plus",ratio:"5:2",mult:0.4,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"United Airlines",p:"MileagePlus",ratio:"5:2",mult:0.4,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"Accor Hotels",p:"ALL – Accor Live",ratio:"5:2",mult:0.4,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+      {a:"IHG Hotels",p:"One Rewards",ratio:"5:2",mult:0.4,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+      {a:"Marriott",p:"Bonvoy",ratio:"5:2",mult:0.4,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+      {a:"Wyndham Hotels",p:"Wyndham Rewards",ratio:"5:2",mult:0.4,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+    ]
+  },
+  {
+    id:"hdfc-infinia", name:"HDFC Infinia / DCB Metal", bank:"HDFC Bank", sub:"SmartBuy / Rewards360 · premium tier", icon:"◉",
+    src:"https://pointsmath.com/hdfc-bank-points-transfer-partners/",
+    partners:[
+      {a:"Singapore Airlines",p:"KrisFlyer",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:true,note:"Confirmed 100:100"},
+      {a:"Air France-KLM",p:"Flying Blue",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:"100:100"},
+      {a:"AirAsia",p:"AirAsia Rewards",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:"100:100"},
+      {a:"SpiceJet",p:"SpiceClub",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:"100:100"},
+      {a:"Vietnam Airlines",p:"Lotusmiles",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:"100:100"},
+      {a:"Finnair",p:"Avios",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:true,note:"Avios at 1:1 (BA is 2:1)"},
+      {a:"Cathay Pacific",p:"Asia Miles",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"Turkish Airlines",p:"Miles&Smiles",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"Avianca",p:"LifeMiles",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"Air India",p:"Maharaja Club",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Official rate"},
+      {a:"British Airways",p:"Avios",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:"Use Finnair instead"},
+      {a:"Qatar Airways",p:"Privilege Club",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Etihad Airways",p:"Etihad Guest",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:""},
+      {a:"Accor Hotels",p:"ALL – Accor Live",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:"Hotel",hotel:true},
+      {a:"Air Canada",p:"Aeroplan",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"Thai Airways",p:"Royal Orchid Plus",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"United Airlines",p:"MileagePlus",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"IHG Hotels",p:"One Rewards",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"🕐",best:true,note:"Hotel",hotel:true},
+      {a:"Radisson",p:"Radisson Rewards",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"🕐",best:true,note:"Hotel",hotel:true},
+      {a:"Wyndham Hotels",p:"Wyndham Rewards",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"🕐",best:true,note:"Hotel",hotel:true},
+      {a:"Marriott",p:"Bonvoy",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+      {a:"ITC Hotels",p:"Club ITC",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+    ]
+  },
+  {
+    id:"hdfc-regalia", name:"HDFC Regalia Gold", bank:"HDFC Bank", sub:"SmartBuy · weaker ratios than Infinia", icon:"◎",
+    src:"https://pointsmath.com/hdfc-bank-points-transfer-partners/",
+    partners:[
+      {a:"Cathay Pacific",p:"Asia Miles",ratio:"3:1",mult:0.33,rc:"rb-3",india:false,speed:"🕐",best:false,note:""},
+      {a:"Singapore Airlines",p:"KrisFlyer",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:"⚠ Not 1:1 — that's Infinia"},
+      {a:"British Airways",p:"Avios",ratio:"3:1",mult:0.33,rc:"rb-3",india:false,speed:"🕐",best:false,note:""},
+      {a:"Qatar Airways",p:"Privilege Club",ratio:"3:1",mult:0.33,rc:"rb-3",india:false,speed:"🕐",best:false,note:""},
+      {a:"Etihad Airways",p:"Etihad Guest",ratio:"3:1",mult:0.33,rc:"rb-3",india:true,speed:"🕐",best:false,note:""},
+      {a:"Turkish Airlines",p:"Miles&Smiles",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Air France-KLM",p:"Flying Blue",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"AirAsia",p:"AirAsia Rewards",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:""},
+      {a:"SpiceJet",p:"SpiceClub",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:""},
+      {a:"Air India",p:"Maharaja Club",ratio:"3:1",mult:0.33,rc:"rb-3",india:true,speed:"🕐",best:false,note:"Official rate"},
+      {a:"Accor Hotels",p:"ALL – Accor Live",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:"Hotel",hotel:true},
+      {a:"Air Canada",p:"Aeroplan",ratio:"3:1",mult:0.33,rc:"rb-3",india:false,speed:"🕐",best:false,note:""},
+      {a:"Avianca",p:"LifeMiles",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"Finnair",p:"Finnair Plus",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"Vietnam Airlines",p:"Lotusmiles",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕐",best:false,note:""},
+      {a:"Thai Airways",p:"Royal Orchid Plus",ratio:"3:1",mult:0.33,rc:"rb-3",india:false,speed:"🕐",best:false,note:""},
+      {a:"United Airlines",p:"MileagePlus",ratio:"3:1",mult:0.33,rc:"rb-3",india:false,speed:"🕐",best:false,note:""},
+      {a:"IHG Hotels",p:"One Rewards",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+      {a:"Radisson",p:"Radisson Rewards",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+      {a:"Wyndham Hotels",p:"Wyndham Rewards",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+      {a:"Marriott",p:"Bonvoy",ratio:"3:1",mult:0.33,rc:"rb-3",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+      {a:"ITC Hotels",p:"Club ITC",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"🕐",best:false,note:"Hotel",hotel:true},
+    ]
+  },
+  {
+    id:"hsbc", name:"HSBC TravelOne / Premier", bank:"HSBC", sub:"20 airline & hotel partners · most transfers 1:1", icon:"⬡",
+    src:"https://www.hsbc.co.in/credit-cards/products/travelone/rewards/",
+    partners:[
+      {a:"AirAsia",p:"AirAsia Points",ratio:"1:3",mult:3,rc:"rb-bonus",india:true,speed:"⚡",best:true,note:"Best raw miles on any India card"},
+      {a:"Singapore Airlines",p:"KrisFlyer",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:true,note:""},
+      {a:"British Airways",p:"Avios",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:true,note:"2× better than Regalia Gold"},
+      {a:"Emirates",p:"Skywards",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:true,note:""},
+      {a:"Air India",p:"Maharaja Club",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"🕐",best:false,note:"Confirmed on TravelOne"},
+      {a:"Qatar Airways",p:"Privilege Club",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Etihad Airways",p:"Etihad Guest",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:""},
+      {a:"Air France-KLM",p:"Flying Blue",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Thai Airways",p:"Royal Orchid Plus",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Japan Airlines",p:"JAL Mileage Bank",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"🕔",best:false,note:""},
+      {a:"Qantas",p:"Frequent Flyer",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"EVA Air",p:"Infinity MileageLands",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Hainan Airlines",p:"Fortune Wings Club",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕔",best:false,note:"Up to 5 working days"},
+      {a:"Turkish Airlines",p:"Miles&Smiles",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"United Airlines",p:"MileagePlus",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Marriott",p:"Bonvoy",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:"Hotel",hotel:true},
+      {a:"IHG Hotels",p:"One Rewards",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:"Hotel",hotel:true},
+      {a:"Accor Hotels",p:"ALL – Accor Live",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:"Hotel",hotel:true},
+      {a:"Shangri-La",p:"Golden Circle",ratio:"5:1",mult:0.2,rc:"rb-6",india:false,speed:"⚡",best:false,note:"Hotel · poor ratio",hotel:true},
+      {a:"Wyndham Hotels",p:"Wyndham Rewards",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:"Hotel",hotel:true},
+    ]
+  },
+  {
+    id:"sbi-miles", name:"SBI Card MILES", bank:"SBI Bank", sub:"Travel Credits · 2,000 min transfer", icon:"◐",
+    src:"https://www.sbicard.com/sbi-card-en/assets/docs/pdf/tnc/sbi-card-miles-base-tnc.pdf",
+    partners:[
+      {a:"Singapore Airlines",p:"KrisFlyer",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:true,note:""},
+      {a:"British Airways",p:"Avios",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:true,note:""},
+      {a:"Air India",p:"Maharaja Club",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"🕐",best:false,note:""},
+      {a:"Cathay Pacific",p:"Asia Miles",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Etihad",p:"Etihad Guest",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:""},
+      {a:"AirAsia",p:"AirAsia Points",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:""},
+      {a:"SpiceJet",p:"SpiceClub",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"⚡",best:false,note:""},
+      {a:"Thai Airways",p:"Royal Orchid Plus",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Qantas",p:"Frequent Flyer",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Vietnam Airlines",p:"Lotusmiles",ratio:"1:1",mult:1,rc:"rb-1",india:false,speed:"⚡",best:false,note:""},
+      {a:"Emirates",p:"Skywards",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:""},
+      {a:"Qatar Airways",p:"Privilege Club",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Turkish Airlines",p:"Miles&Smiles",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"United Airlines",p:"MileagePlus",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Japan Airlines",p:"JAL Mileage Bank",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"🕔",best:false,note:""},
+    ]
+  },
+  {
+    id:"amex", name:"Amex Membership Rewards", bank:"American Express", sub:"India · confirmed partners only", icon:"★",
+    src:"https://www.americanexpress.com/in/customer-service/faq.how-do-i-redeem-or-transfer-my-membership-rewards-points.html",
+    partners:[
+      {a:"Cathay Pacific",p:"Asia Miles",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:true,note:"Best value on Amex"},
+      {a:"Singapore Airlines",p:"KrisFlyer",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:""},
+      {a:"British Airways",p:"Avios",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Emirates",p:"Skywards",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:""},
+      {a:"Etihad Airways",p:"Etihad Guest",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:""},
+      {a:"Qatar Airways",p:"Privilege Club",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Virgin Atlantic",p:"Flying Club",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+    ]
+  },
+  {
+    id:"icici-emeralde-private", name:"ICICI Emeralde Private Metal", bank:"ICICI Bank", sub:"ICICI Rewards · direct Air India transfer", icon:"✦",
+    src:"https://www.airindia.com/in/en/maharaja-club/partner-offers/icici.html",
+    partners:[
+      {a:"Air India",p:"Maharaja Club",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"🕐",best:true,note:"Official rate"},
+    ]
+  },
+  {
+    id:"icici-times-black", name:"ICICI Times Black", bank:"ICICI Bank", sub:"ICICI Rewards · direct Air India transfer", icon:"◆",
+    src:"https://www.airindia.com/in/en/maharaja-club/partner-offers/icici.html",
+    partners:[
+      {a:"Air India",p:"Maharaja Club",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"🕐",best:true,note:"Official rate"},
+    ]
+  },
+  {
+    id:"indusind-rewards", name:"IndusInd Bank Credit Cards", bank:"IndusInd Bank", sub:"Reward Points · InterMiles transfer", icon:"◌",
+    src:"https://www.indusind.bank.in/in/en/personal/redemption-against-miles-on-partner-airlines.html",
+    partners:[
+      {a:"InterMiles",p:"InterMiles",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"15 days",best:true,note:"Min. 500 points; phone banking"},
+    ]
+  },
+  {
+    id:"kotak", name:"Kotak Solitaire", bank:"Kotak Bank", sub:"Air Miles program · min 2,000 miles", icon:"◇",
+    src:"https://www.kotak.bank.in/content/dam/Kotak/gsfcfiles/credit-cards/miles-transfer-ratio-01092025.pdf",
+    partners:[
+      {a:"Air India",p:"Maharaja Club",ratio:"1:1",mult:1,rc:"rb-1",india:true,speed:"🕐",best:true,note:"Only 1:1 partner"},
+      {a:"Etihad Airways",p:"Etihad Guest",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:""},
+      {a:"Qatar Airways",p:"Privilege Club",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"British Airways",p:"Avios",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"United Airlines",p:"MileagePlus",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Cathay Pacific",p:"Asia Miles",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Air France-KLM",p:"Flying Blue",ratio:"2:1",mult:0.5,rc:"rb-2",india:false,speed:"⚡",best:false,note:""},
+      {a:"Accor Hotels",p:"ALL – Accor Live",ratio:"2:1",mult:0.5,rc:"rb-2",india:true,speed:"⚡",best:false,note:"Hotel",hotel:true},
+      {a:"Marriott",p:"Bonvoy",ratio:"3:1",mult:0.33,rc:"rb-3",india:true,speed:"⚡",best:false,note:"Hotel · poor",hotel:true},
+    ]
+  },
+];
+
+const fmt = n => Math.round(n).toLocaleString('en-IN');
+let selCard = null;
+
+/* ── Build bank dropdown ── */
+const banks = [...new Set(cards.map(c => c.bank))].sort();
+const bankDrop = document.getElementById('bankDrop');
+banks.forEach(b => {
+  const d = document.createElement('button');
+  d.type = 'button';
+  d.setAttribute('role', 'option');
+  d.className = 'sel-opt';
+  d.innerHTML = `<span class="opt-icon">🏦</span><div><div class="opt-name">${b}</div></div>`;
+  d.addEventListener('click', () => pickBank(b));
+  bankDrop.appendChild(d);
+});
+
+function pickBank(b) {
+  document.getElementById('bankFace').innerHTML =
+    `<span class="sel-icon">🏦</span><div class="sel-text"><div class="sel-name">${b}</div></div><span class="sel-arrow">▼</span>`;
+  bankDrop.classList.remove('visible');
+  document.getElementById('bankFace').classList.remove('open');
+  document.getElementById('bankFace').setAttribute('aria-expanded', 'false');
+  selCard = null;
+  const cardFace = document.getElementById('cardFace');
+  cardFace.innerHTML =
+    `<span class="sel-icon">💳</span><div class="sel-text"><div class="sel-name">Choose your card</div></div><span class="sel-arrow">▼</span>`;
+  cardFace.disabled = false;
+  setMessage('');
+  // Populate card dropdown
+  const cardDrop = document.getElementById('cardDrop');
+  cardDrop.innerHTML = '';
+  cards.filter(c => c.bank === b).forEach(c => {
+    const d = document.createElement('button');
+    d.type = 'button';
+    d.setAttribute('role', 'option');
+    d.className = 'sel-opt';
+    d.innerHTML = `<span class="opt-icon">${c.icon}</span><div><div class="opt-name">${c.name}</div><div class="opt-sub" style="font-size:11px;color:var(--muted)">${c.sub}</div></div>`;
+    d.addEventListener('click', () => pickCard(c.id));
+    cardDrop.appendChild(d);
+  });
+  trackEvent('bank_selected', {bank: b});
+}
+
+function pickCard(id) {
+  selCard = cards.find(c => c.id === id);
+  document.getElementById('cardFace').innerHTML =
+    `<span class="sel-icon">${selCard.icon}</span><div class="sel-text"><div class="sel-name">${selCard.name}</div><div class="sel-sub">${selCard.sub}</div></div><span class="sel-arrow">▼</span>`;
+  document.getElementById('cardDrop').classList.remove('visible');
+  document.getElementById('cardFace').classList.remove('open');
+  document.getElementById('cardFace').setAttribute('aria-expanded', 'false');
+  setMessage('');
+  trackEvent('card_selected', {card: selCard.name});
+}
+
+/* ── Toggle dropdowns ── */
+function closeDrops() {
+  document.querySelectorAll('.sel-drop').forEach(d => d.classList.remove('visible'));
+  document.querySelectorAll('.sel-face').forEach(f => {
+    f.classList.remove('open');
+    f.setAttribute('aria-expanded', 'false');
+  });
+}
+
+function setupDrop(faceId, dropId) {
+  const face = document.getElementById(faceId);
+  const drop = document.getElementById(dropId);
+  face.addEventListener('click', e => {
+    e.stopPropagation();
+    const open = drop.classList.contains('visible');
+    closeDrops();
+    if (!open) {
+      drop.classList.add('visible');
+      face.classList.add('open');
+      face.setAttribute('aria-expanded', 'true');
+    }
+  });
+}
+setupDrop('bankFace','bankDrop');
+setupDrop('cardFace','cardDrop');
+document.addEventListener('click', closeDrops);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrops(); });
+
+/* ── Calculate ── */
+document.getElementById('calcBtn').addEventListener('click', calculate);
+document.getElementById('ptsInput').addEventListener('keydown', e => { if(e.key==='Enter') calculate(); });
+const setMessage = text => { document.getElementById('formMessage').textContent = text; };
+
+function calculate() {
+  const pts = parseInt(document.getElementById('ptsInput').value) || 0;
+  if (!selCard) { setMessage('Please select a bank and credit card first.'); return; }
+  if (pts < 100) { setMessage('Please enter at least 100 reward points.'); return; }
+  setMessage('');
+
+  const sorted = [...selCard.partners].sort((a,b) => b.mult - a.mult);
+  const best = sorted[0], worst = sorted[sorted.length-1];
+
+  document.getElementById('resGrid').innerHTML = `
+    <div class="res-card">
+      <div class="res-val" style="color:var(--green)">${fmt(pts*best.mult)}</div>
+      <div class="res-lbl">Best: ${best.ratio} → ${best.a}</div>
+    </div>
+    <div class="res-card">
+      <div class="res-val">${fmt(pts*worst.mult)}</div>
+      <div class="res-lbl">Worst: ${worst.ratio} → ${worst.a}</div>
+    </div>
+    <div class="res-card">
+      <div class="res-val" style="color:var(--gold-dark)">${selCard.partners.length}</div>
+      <div class="res-lbl">Transfer partners available</div>
+    </div>
+    <div class="res-card">
+      <div class="res-val" style="font-size:1.2rem;padding-top:4px">${selCard.name}</div>
+      <div class="res-lbl"><a href="${selCard.src}" target="_blank" rel="noopener noreferrer" style="color:var(--gold-dark)">View source ↗</a></div>
+    </div>
+  `;
+
+  document.getElementById('resBody').innerHTML = sorted.map(p => `
+    <tr>
+      <td>
+        <div class="airline-row">
+          <div class="al-info">
+            <div class="al-name">
+              ${p.a}
+              ${p.india ? '<span class="tag t-india">India</span>' : ''}
+              ${p.hotel ? '<span class="tag t-hotel">hotel</span>' : ''}
+              ${p.best  ? '<span class="tag t-best">★ best</span>' : ''}
+            </div>
+            <div class="al-prog">${p.p}</div>
+          </div>
+        </div>
+      </td>
+      <td class="r"><span class="rb ${p.rc}">${p.ratio}</span></td>
+      <td class="r"><span class="mv">${fmt(pts*p.mult)}</span></td>
+      <td class="speed-col">${p.speed}</td>
+      <td class="note-col">${p.note||''}</td>
+    </tr>
+  `).join('');
+
+  document.getElementById('resultsArea').style.display = 'block';
+  document.getElementById('emptyState').style.display = 'none';
+  document.getElementById('resultsArea').scrollIntoView({behavior:'smooth', block:'start'});
+
+  trackEvent('miles_calculated', {card: selCard.name, points: pts, best_miles: pts*best.mult});
+}
+</script>
+</body>
+</html>
